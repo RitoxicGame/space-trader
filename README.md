@@ -1,3 +1,5 @@
+PR Template is inspired by the one used by applyToTheIndustrySim: https://github.com/amonjerro/applyToTheIndustrySim/blob/main/.github/pull_request_template.md
+
 QUICK NOTE:
 
 main branch is for functional builds ONLY
