@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "ScriptableObjects/TradeItem")]
 public class TradeItem : ScriptableObject
 {
+    //Sprite to use when displaying the trade good
+    public Sprite sprite;
+
+    //Item name
+    public string itemName;
+
     //Base sell price for an item
     public float baseMarketValue;
+
+    //How much space one unit takes up in cargo hold
+    public int cargoVolume;
 
     //Multiplier for market shifts
     public float volatility; //to be implemented later
 
-    //Max amount that can be held in one cargo slot
-    public int maxStackSize;
-
     //Illegal?
     public bool contraband; //to be implemented
-
-    //Sprite to use when displaying the trade good
-    public Sprite sprite;
 }
