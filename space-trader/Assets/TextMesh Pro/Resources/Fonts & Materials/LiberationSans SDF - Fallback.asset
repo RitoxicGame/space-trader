@@ -52,7 +52,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 28268798066460806}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -370,7 +369,6 @@ MonoBehaviour:
     m_GlyphIndex: 2030
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 28268798066460806}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 1

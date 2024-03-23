@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TradeManager: MonoBehaviour
 {
     public static TradeManager Instance;
 
-    [SerializeField] TravelManager travelManager;
-    [SerializeField] GameObject tradeWindow;
-    //[SerializeField] Planet[] planets;
-
-    //private Dictionary<Planet, PlanetMarketInstance> planetas;
+    [SerializeField] public TravelManager travelManager;
+    [SerializeField] TradeUI tradeWindow;
 
     private void Awake()
     {
@@ -25,6 +23,7 @@ public class TradeManager: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tradeWindow.gameObject.SetActive(false);
         //I might be stupid lol
         /*planets = travelManager.gameObject.GetComponentsInChildren<Planet>();
         foreach (Planet market in planets)
@@ -39,8 +38,18 @@ public class TradeManager: MonoBehaviour
         
     }*/
 
-    public void displayCurrentMarket()
+    public void DisplayCurrentMarket()
     {
 
+    }
+
+    public void DisplayConfirmation()
+    {
+
+    }
+
+    public void ToggleTradeUI()
+    {
+        tradeWindow.gameObject.SetActive(!tradeWindow.gameObject.activeInHierarchy);
     }
 }

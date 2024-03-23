@@ -9,4 +9,5 @@ public class PlanetMarketPosting: ScriptableObject
     public TradeItem item;
     public float supply;
     public float demand;
+    public int stockAvailable; //To be implemented: For now, assume all stocks are infinite
 }
