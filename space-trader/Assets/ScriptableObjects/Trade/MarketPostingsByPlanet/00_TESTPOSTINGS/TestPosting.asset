@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b9f42f612760af041bf810e0d340027e, type: 2}
   supply: 2
-  demand: -50
-  stockAvailable: 9999
+  demand: 20
