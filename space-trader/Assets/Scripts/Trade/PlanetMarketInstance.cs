@@ -27,15 +27,18 @@ public class PlanetMarketInstance: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        salePrices = new Dictionary<TradeItem,float>();
+        buyPrices = new Dictionary<TradeItem,float>();
+
         foreach (PlanetMarketPosting markets in market)
         {
             Debug.Log("Setting prices for " + markets.item.name);
-            if (markets.demand < 0)
+            if (markets.demand > 0)
             {
                 salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
                 buyPrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
             }
-            else if (markets.demand > 0)
+            else if (markets.demand < 0)
             {
                 salePrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
                 buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;

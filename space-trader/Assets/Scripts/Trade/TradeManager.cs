@@ -7,7 +7,7 @@ public class TradeManager: MonoBehaviour
 {
     public static TradeManager Instance;
 
-    [SerializeField] public TravelManager travelManager;
+    public TravelManager travelManager;
     //[SerializeField] TradeUI tradeWindow;
 
     private void Awake()
@@ -32,20 +32,9 @@ public class TradeManager: MonoBehaviour
         }*/
     }
 
-    /*// Update is called once per frame
-    void Update()
+    public void ToggleConfirmationWindow(ConfirmationWindow confirmationWindow)
     {
-        
-    }*/
-
-    public void DisplayCurrentMarket()
-    {
-
-    }
-
-    public void DisplayConfirmation()
-    {
-
+        confirmationWindow.gameObject.SetActive(!confirmationWindow.gameObject.activeInHierarchy);
     }
 
     public void ToggleTradeUI(TradeUI tradeWindow)
