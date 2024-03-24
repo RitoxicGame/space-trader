@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14ec06faa3d9a754e8c164aa1fc1d6d3, type: 3}
-  m_Name: TestPosting2
+  m_Name: TestPosting 4
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: b9f42f612760af041bf810e0d340027e, type: 2}
-  supply: 20
-  demand: 2
+  item: {fileID: 11400000, guid: c97bdbf23bf83a74497bf4472fdcca75, type: 2}
+  supply: -100
+  demand: 50
+  stockAvailable: 9999
