@@ -11,13 +11,16 @@ public class ConfirmationWindowButton : MonoBehaviour
 
     public void OnClick()
     {
-        switch (type)
+        if (panel != null)
         {
-            case ConfirmationWindowButtonType.cancel:
-                TradeManager.Instance.ToggleConfirmationWindow(this.GetComponentInParent<ConfirmationWindow>());
-                break; 
-            case ConfirmationWindowButtonType.confirm:
-                break;
+            switch (type)
+            {
+                case ConfirmationWindowButtonType.cancel:
+                    TradeManager.Instance.ToggleConfirmationWindow(this.GetComponentInParent<ConfirmationWindow>());
+                    break;
+                case ConfirmationWindowButtonType.confirm:
+                    break;
+            }
         }
     }
 }

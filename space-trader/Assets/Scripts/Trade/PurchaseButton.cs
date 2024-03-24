@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PurchaseButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TradeWindowPanel panel;
+    public ConfirmationWindow confirmation;
 
-    // Update is called once per frame
-    void Update()
+    public void OnClick()
     {
-        
+        if (panel != null)
+        {
+            TradeManager.Instance.ToggleConfirmationWindow(confirmation);
+            confirmation.panel = panel;
+        }
     }
 }
