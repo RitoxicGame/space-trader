@@ -9,7 +9,16 @@ public class PlanetMarketInstance: MonoBehaviour
     //Market value shenanigans
     public PlanetMarketPosting[] market;
 
+    /// <summary>
+    /// prices at which **planets** will sell their goods
+    /// **to the player**.
+    /// </summary>
     private Dictionary<TradeItem,float> salePrices;
+
+    /// <summary>
+    /// prices at which **planets** will buy goods
+    /// **from the player**;
+    /// </summary>
     private Dictionary<TradeItem,float> buyPrices;
 
     //To be implemented
@@ -18,12 +27,24 @@ public class PlanetMarketInstance: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int i = 0;
         foreach (PlanetMarketPosting markets in market)
         {
-            salePrices[markets.item] = markets.item.baseMarketValue - markets.supply;
-            buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
-            i++;
+            Debug.Log("Setting prices for " + markets.item.name);
+            if (markets.demand < 0)
+            {
+                salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+                buyPrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
+            }
+            else if (markets.demand > 0)
+            {
+                salePrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
+                buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+            }
+            else
+            {
+                salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+                buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+            }
         }
     }
 
