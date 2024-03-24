@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6505867907360517334}
-  - component: {fileID: 1863810348658871246}
+  - component: {fileID: 9172192309446682229}
   m_Layer: 5
   m_Name: BuyTradeWindow
   m_TagString: Untagged
@@ -483,7 +483,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1863810348658871246
+--- !u!114 &9172192309446682229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,6 +492,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9066179823018903722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45900022e19fe4c4caafde6d406ff558, type: 3}
+  m_Script: {fileID: 11500000, guid: e6210dac58ce1884b833faa3154e3435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

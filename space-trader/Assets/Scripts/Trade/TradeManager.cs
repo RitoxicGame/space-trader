@@ -8,7 +8,7 @@ public class TradeManager: MonoBehaviour
     public static TradeManager Instance;
 
     [SerializeField] public TravelManager travelManager;
-    [SerializeField] TradeUI tradeWindow;
+    //[SerializeField] TradeUI tradeWindow;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class TradeManager: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tradeWindow.gameObject.SetActive(false);
+        //tradeWindow.gameObject.SetActive(false);
         //I might be stupid lol
         /*planets = travelManager.gameObject.GetComponentsInChildren<Planet>();
         foreach (Planet market in planets)
@@ -48,7 +48,7 @@ public class TradeManager: MonoBehaviour
 
     }
 
-    public void ToggleTradeUI()
+    public void ToggleTradeUI(TradeUI tradeWindow)
     {
         tradeWindow.gameObject.SetActive(!tradeWindow.gameObject.activeInHierarchy);
     }
