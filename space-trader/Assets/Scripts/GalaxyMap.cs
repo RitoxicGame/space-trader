@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class TravelManager : MonoBehaviour
     public Planet currentPlanet;
     public GameObject rocketShip;
     private Vector3 targetPosition;
+    public Portal currentPortal;
 
     public void MoveToPlanet(Planet targetPlanet)
     {
@@ -26,7 +28,9 @@ public class TravelManager : MonoBehaviour
         {
             // Notify the player they can't afford the travel
         }
+
     }
+
 
     public int CalculateTravelCost(Planet startPlanet, Planet targetPlanet)
     {
@@ -77,4 +81,8 @@ public class TravelManager : MonoBehaviour
         return true;
     }
 
+    internal int CalculateTravelCost(Planet currentPlanet, Portal targetPortal)
+    {
+        throw new NotImplementedException();
+    }
 }

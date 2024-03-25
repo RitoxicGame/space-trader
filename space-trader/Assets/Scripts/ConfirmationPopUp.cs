@@ -29,6 +29,7 @@ public class TravelConfirmationPanelController : MonoBehaviour
         onConfirmAction = onConfirm;
         onCancelAction = onCancel;
         panelGameObject.SetActive(true);
+        
     }
 
     private void OnYesClicked()
