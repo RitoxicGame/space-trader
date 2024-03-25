@@ -454,7 +454,7 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 400, y: 400}
   m_Spacing: {x: 20, y: 20}
-  m_Constraint: 1
+  m_Constraint: 0
   m_ConstraintCount: 5
 --- !u!1 &6310459447837552028
 GameObject:
@@ -509,4 +509,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1805246332815931578, guid: bddb0366ef1dc3645b14d7c616a46194, type: 3}
-  windowType: 0
+  windowType: 1
