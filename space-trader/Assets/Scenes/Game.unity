@@ -3103,10 +3103,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 955210696}
-    - target: {fileID: 4109019929315437211, guid: 95bf45442aacf004dba389c35e005bbe, type: 3}
-      propertyPath: windowType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4385346712204932410, guid: 95bf45442aacf004dba389c35e005bbe, type: 3}
       propertyPath: m_Name
       value: SellTradeWindow
@@ -3201,10 +3197,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 955210696}
-    - target: {fileID: 1826840960442990979, guid: a785871660982e4409e721a9ee85bbd5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1760617112}
     - target: {fileID: 6505867907360517334, guid: a785871660982e4409e721a9ee85bbd5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

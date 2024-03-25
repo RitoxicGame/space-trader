@@ -17,6 +17,8 @@ public class TradeWindowPanel : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemName;
     [SerializeField] TextMeshProUGUI cost;
     [SerializeField] TextMeshProUGUI amount;
+    [SerializeField] TextMeshProUGUI purchaseText;
+    [SerializeField] TextMeshProUGUI sellText;
     [SerializeField] Image sprite;
 
 
@@ -39,6 +41,8 @@ public class TradeWindowPanel : MonoBehaviour
 
     public void ResetUI()
     {
+        purchaseText.gameObject.SetActive(false);
+        sellText.gameObject.SetActive(false);
         if (item != null)
         {
             itemName.text = item.name;
@@ -50,6 +54,16 @@ public class TradeWindowPanel : MonoBehaviour
             }
             quantityToBuy = 0;
             amount.text = "" + quantityToBuy;
+            if(tradeType == TradeType.playerBuy)
+            {
+                purchaseText.gameObject.SetActive(true);
+                sellText.gameObject.SetActive(false);
+            }
+            else
+            {
+                purchaseText.gameObject.SetActive(false);
+                sellText.gameObject.SetActive(true);
+            }
         }
     }
 

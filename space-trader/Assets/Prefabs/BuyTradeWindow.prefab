@@ -447,12 +447,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9133593429255450730, guid: 178158e14e122db4aacaa61f767b0a07, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TradeManager, Assembly-CSharp
         m_MethodName: ToggleTradeUI
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5999275688588545730, guid: 95bf45442aacf004dba389c35e005bbe, type: 3}
+          m_ObjectArgument: {fileID: 9172192309446682229}
           m_ObjectArgumentAssemblyTypeName: TradeUI, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
