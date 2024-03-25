@@ -2610,6 +2610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1865027708}
     m_Modifications:
+    - target: {fileID: 1427234159915820324, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3816404337214544449, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
       propertyPath: m_Name
       value: TradeConfirmBox
@@ -2648,11 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705417376332626724, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 700
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 4705417376332626724, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4705417376332626724, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2702,6 +2706,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901388852534630714, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901388852534630714, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 3293451064974929408, guid: bddb0366ef1dc3645b14d7c616a46194, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2712,6 +2724,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4705417376332626724, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
   m_PrefabInstance: {fileID: 1644049576}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644049578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1427234159915820324, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
+  m_PrefabInstance: {fileID: 1644049576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9918a7df7f637344fae609bfd39862dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1760617111 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6505867907360517334, guid: a785871660982e4409e721a9ee85bbd5, type: 3}
@@ -3157,6 +3180,10 @@ PrefabInstance:
       propertyPath: travelManager
       value: 
       objectReference: {fileID: 1865027709}
+    - target: {fileID: 9133593429255450730, guid: 178158e14e122db4aacaa61f767b0a07, type: 3}
+      propertyPath: confirmationWindow
+      value: 
+      objectReference: {fileID: 1644049578}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

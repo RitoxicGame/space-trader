@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PurchaseButton : MonoBehaviour
 {
-    public TradeWindowPanel panel;
-    public ConfirmationWindow confirmation;
+    private TradeWindowPanel panel;
+    //public ConfirmationWindow confirmation; frick me am I ever stupid XD ~QP
 
-    /*private void Awake()
+    private void OnEnable()
     {
         panel = this.gameObject.GetComponentInParent<TradeWindowPanel>();
-    }*/
+    }
 
     public void OnClick()
     {
-        if (panel != null && confirmation != null)
+        if (panel != null)
         {
-            TradeManager.Instance.ToggleConfirmationWindow(confirmation);
-            confirmation.panel = panel;
+            if (panel.quantityToBuy > 0)
+            {
+                //Debug.Log("Loading confirmation window for " + panel.item.itemName);
+                TradeManager.Instance.confirmationWindow.panel = panel;
+                //Debug.Log("From PurchaseButton: " + confirmation.panel);
+                TradeManager.Instance.ToggleConfirmationWindow(/*confirmation*/);
+            }
+            else Debug.Log("Buy somethin', will ya?");
         }
     }
 }

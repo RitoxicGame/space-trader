@@ -32,7 +32,7 @@ public class PlanetMarketInstance: MonoBehaviour
 
         foreach (PlanetMarketPosting markets in market)
         {
-            Debug.Log("Setting prices for " + markets.item.name);
+            //Debug.Log("Setting prices for " + markets.item.name);
             if (markets.demand > 0)
             {
                 salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;

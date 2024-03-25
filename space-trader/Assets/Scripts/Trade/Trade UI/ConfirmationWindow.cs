@@ -7,11 +7,15 @@ public class ConfirmationWindow : MonoBehaviour
 {
     private ConfirmationWindowButton confirmButton;
     public TradeWindowPanel panel;
+    public TextMeshProUGUI playerBuyQuantityText;
+    public TextMeshProUGUI playerSellQuantityText;
+    public TextMeshProUGUI playerBuyValueText;
+    public TextMeshProUGUI playerSellValueText;
     public TextMeshProUGUI nameField;
     public TextMeshProUGUI quantityField;
     public TextMeshProUGUI valueField;
 
-    private void Start()
+    public void OnEnable()
     {
         ConfirmationWindowButton[] confirmationWindowButtons = GetComponentsInChildren<ConfirmationWindowButton>();
         foreach (ConfirmationWindowButton button in confirmationWindowButtons)
@@ -21,20 +25,46 @@ public class ConfirmationWindow : MonoBehaviour
                 confirmButton = button;
             }
         }
-    }
 
-    private void OnEnable()
-    {
-        if(confirmButton != null
+        //Debug.Log(confirmButton);
+
+        if (confirmButton != null
             && panel != null
             && nameField != null
             && quantityField != null
-            && valueField != null
-            && confirmButton.type == ConfirmationWindowButtonType.confirm)
+            && valueField != null)
         {
+            Debug.Log("From ConfirmationWindow: " + panel);
+            confirmButton.panel = panel;
             nameField.text = panel.item.itemName;
             quantityField.text = panel.quantityToBuy + "";
-            valueField.text = panel.Value + "";
+            valueField.text = System.Math.Abs(panel.Value * panel.quantityToBuy) + "";
         }
+
+        //Set appropriate text panels (Purchase Cost vs. Sale Value)
+        if (panel.tradeType == TradeType.playerSell)
+        {
+            playerSellValueText.gameObject.SetActive(true);
+            playerBuyValueText.gameObject.SetActive(false);
+            playerSellQuantityText.gameObject.SetActive(true);
+            playerBuyQuantityText.gameObject.SetActive(false);
+        }
+        else
+        {
+            playerSellValueText.gameObject.SetActive(false);
+            playerBuyValueText.gameObject.SetActive(true);
+            playerSellQuantityText.gameObject.SetActive(false);
+            playerBuyQuantityText.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnDisable()
+    {
+        confirmButton = null;
+        panel = null;
+        playerSellValueText.gameObject.SetActive(false);
+        playerBuyValueText.gameObject.SetActive(false);
+        playerSellQuantityText.gameObject.SetActive(false);
+        playerBuyQuantityText.gameObject.SetActive(false);
     }
 }

@@ -57,4 +57,9 @@ public class TradeWindowPanel : MonoBehaviour
     {
         amount.text = "" + quantityToBuy;
     }
+
+    public override string ToString()
+    {
+        return "Panel containing " + quantityToBuy + " " + item.itemName + " valued at " + System.Math.Abs(_value) + " currency each";
+    }
 }
