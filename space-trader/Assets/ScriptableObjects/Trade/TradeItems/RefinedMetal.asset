@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 26c079b6557dff748b22534129a012c0, type: 3}
   itemName: Refined Metal
-  baseMarketValue: 100
-  cargoVolume: 2
+  baseMarketValue: 20
+  minimumValue: 10
   volatility: 0
+  cargoVolume: 2
   contraband: 0

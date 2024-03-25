@@ -10,10 +10,28 @@ public enum IncOrDec { inc, dec }
 
 public class TradeWindowPanel : MonoBehaviour
 {
+    /// <summary>
+    /// The item being bought or sold.
+    /// </summary>
     public TradeItem item;
+
+    /// <summary>
+    /// The type of transaction -- buy or sell.
+    /// </summary>
     public TradeType tradeType;
-    public int stock; //To be implemented -- for now all stocks are infinite
+
+    /// <summary>
+    /// The amount of a given item available in a given market.
+    /// Has yet to be implemented -- for now all stocks are infinite.
+    /// </summary>
+    public int stock;
+
+    /// <summary>
+    /// The amount the player intends to buy
+    /// </summary>
     public int quantityToBuy = 0;
+
+    //UI Text and Image fields to be filled
     [SerializeField] TextMeshProUGUI itemName;
     [SerializeField] TextMeshProUGUI cost;
     [SerializeField] TextMeshProUGUI amount;
@@ -21,7 +39,11 @@ public class TradeWindowPanel : MonoBehaviour
     [SerializeField] TextMeshProUGUI sellText;
     [SerializeField] Image sprite;
 
-
+    /// <summary>
+    /// The total value of the transaction.
+    /// Positive values mean the player is selling something, while
+    /// Negative values mean the player is buying someting.
+    /// </summary>
     private float _value;
     public float Value
     {
@@ -39,6 +61,9 @@ public class TradeWindowPanel : MonoBehaviour
         ResetUI();
     }
 
+    /// <summary>
+    /// Reset the UI when a major change occurs, such as the window being reloaded.
+    /// </summary>
     public void ResetUI()
     {
         purchaseText.gameObject.SetActive(false);
@@ -67,11 +92,18 @@ public class TradeWindowPanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update th Quantity text field when the value changes -- see TradeQuantityAdjustButton.cs
+    /// </summary>
     public void UpdateBuyQuantity()
     {
         amount.text = "" + quantityToBuy;
     }
 
+    /// <summary>
+    /// ToString override for debugging purposes.
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
         return "Panel containing " + quantityToBuy + " " + item.itemName + " valued at " + System.Math.Abs(_value) + " currency each";

@@ -6,21 +6,38 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "ScriptableObjects/TradeItem")]
 public class TradeItem : ScriptableObject
 {
-    //Sprite to use when displaying the trade good
+    /// <summary>
+    /// Sprite to use when displaying the trade good
+    /// </summary>
     public Sprite sprite;
 
-    //Item name
+    /// <summary>
+    /// Item name
+    /// </summary>
     public string itemName;
 
-    //Base sell price for an item
+    /// <summary>
+    /// Base sell price for an item
+    /// </summary>
     public float baseMarketValue;
 
-    //How much space one unit takes up in cargo hold
+    /// <summary>
+    /// Absolute minimum buy/sell price for an item
+    /// </summary>
+    public float minimumValue;
+
+    /// <summary>
+    /// Multiplier for market shifts -- to be implemented
+    /// </summary>
+    public float volatility;
+
+    /// <summary>
+    /// How much space one unit takes up in cargo hold
+    /// </summary>
     public int cargoVolume;
 
-    //Multiplier for market shifts
-    public float volatility; //to be implemented later
-
-    //Illegal?
-    public bool contraband; //to be implemented
+    /// <summary>
+    /// Illegal? -- to be implemented
+    /// </summary>
+    public bool contraband;
 }

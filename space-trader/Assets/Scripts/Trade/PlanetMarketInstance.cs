@@ -6,18 +6,18 @@ public enum TradeType { playerSell, playerBuy }
 
 public class PlanetMarketInstance: MonoBehaviour
 {
-    //Market value shenanigans
+    /// <summary>
+    /// Market value shenanigans
+    /// </summary>
     public PlanetMarketPosting[] market;
 
     /// <summary>
-    /// prices at which **planets** will sell their goods
-    /// **to the player**.
+    /// prices at which the player can sell their goods to planets
     /// </summary>
     private Dictionary<TradeItem,float> salePrices;
 
     /// <summary>
-    /// prices at which **planets** will buy goods
-    /// **from the player**;
+    /// prices at which the player can buy goods from planets
     /// </summary>
     private Dictionary<TradeItem,float> buyPrices;
 
@@ -30,23 +30,23 @@ public class PlanetMarketInstance: MonoBehaviour
         salePrices = new Dictionary<TradeItem,float>();
         buyPrices = new Dictionary<TradeItem,float>();
 
-        foreach (PlanetMarketPosting markets in market)
+        foreach (PlanetMarketPosting postings in market)
         {
-            //Debug.Log("Setting prices for " + markets.item.name);
-            if (markets.demand > 0)
+            //Debug.Log("Setting prices for " + postings.item.name);
+            if (postings.demand > 0)
             {
-                salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
-                buyPrices[markets.item] = 1.50f * (markets.item.baseMarketValue + markets.demand);
+                salePrices[postings.item] = System.Math.Max(1.10f * (postings.item.baseMarketValue + postings.demand), postings.item.minimumValue);
+                buyPrices[postings.item] = System.Math.Max(2.50f * (postings.item.baseMarketValue + postings.demand), postings.item.minimumValue);
             }
-            else if (markets.demand < 0)
+            else if (postings.demand < 0)
             {
-                salePrices[markets.item] = 0.75f * (markets.item.baseMarketValue + markets.demand);
-                buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+                salePrices[postings.item] = System.Math.Max(0.30f * (postings.item.baseMarketValue + postings.demand), postings.item.minimumValue);
+                buyPrices[postings.item] = System.Math.Max(0.80f * (postings.item.baseMarketValue + postings.demand), postings.item.minimumValue);
             }
             else
             {
-                salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
-                buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
+                salePrices[postings.item] = 0.95f * (postings.item.baseMarketValue + postings.demand);
+                buyPrices[postings.item] = 1.20f * (postings.item.baseMarketValue + postings.demand);
             }
         }
     }

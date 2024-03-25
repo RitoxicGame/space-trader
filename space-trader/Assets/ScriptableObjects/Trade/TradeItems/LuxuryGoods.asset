@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 26c079b6557dff748b22534129a012c0, type: 3}
   itemName: Luxury Goods
   baseMarketValue: 120
-  cargoVolume: 12
+  minimumValue: 30
   volatility: 0
+  cargoVolume: 12
   contraband: 0

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Implementation *heavily* inspired by that which was used in Apply to the Industry Simulator, coded chiefly by Rob Reddick and Eduardo Escudero
+//Implementation *heavily* inspired by that which was used in Apply to the Industry Simulator,
+// which was coded chiefly by Rob Reddick and Eduardo Escudero
 
 public enum WindowType { buyTrade, sellTrade, agent }
 
@@ -36,7 +37,7 @@ public class BuyTradeWindow : ISelectionWindow
             TradeWindowPanel panel = panelButton.GetComponent<TradeWindowPanel>();
             panel.tradeType = TradeType.playerBuy;
             panel.item = p.item;
-            panel.Value = planetMarket.GetSalePrice(p.item);
+            panel.Value = planetMarket.GetBuyPrice(p.item);
             panel.stock = p.stockAvailable;
             panel.ResetUI();
         }
@@ -66,7 +67,7 @@ public class SellTradeWindow : ISelectionWindow
             TradeWindowPanel panel = panelButton.GetComponent<TradeWindowPanel>();
             panel.tradeType = TradeType.playerSell;
             panel.item = p.item;
-            panel.Value = planetMarket.GetBuyPrice(p.item);
+            panel.Value = planetMarket.GetSalePrice(p.item);
             panel.stock = p.stockAvailable;
             panel.ResetUI();
         }

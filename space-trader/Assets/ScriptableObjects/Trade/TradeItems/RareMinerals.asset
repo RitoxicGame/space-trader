@@ -15,6 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 26c079b6557dff748b22534129a012c0, type: 3}
   itemName: Rare Minerals
   baseMarketValue: 50
-  cargoVolume: 4
+  minimumValue: 16
   volatility: 0
+  cargoVolume: 4
   contraband: 0

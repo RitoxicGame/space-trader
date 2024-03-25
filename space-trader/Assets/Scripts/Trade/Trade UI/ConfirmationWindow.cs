@@ -5,13 +5,26 @@ using UnityEngine;
 
 public class ConfirmationWindow : MonoBehaviour
 {
+    /// <summary>
+    /// The button which confirms the transaction --
+    /// This passes necessary transaction data to the TradeManager for processing
+    /// </summary>
     private ConfirmationWindowButton confirmButton;
+
+    /// <summary>
+    /// The TradeWindowPanel that holds the transaction info
+    /// </summary>
     public TradeWindowPanel panel;
+
+    //Static text fields to indicate whether the player is buying or selling
     public TextMeshProUGUI playerBuyQuantityText;
     public TextMeshProUGUI playerSellQuantityText;
     public TextMeshProUGUI playerBuyValueText;
     public TextMeshProUGUI playerSellValueText;
+
+    //Variable text fields to display item and transaction data
     public TextMeshProUGUI nameField;
+    public TextMeshProUGUI baseMarketValueField;
     public TextMeshProUGUI quantityField;
     public TextMeshProUGUI valueField;
 
@@ -31,12 +44,14 @@ public class ConfirmationWindow : MonoBehaviour
         if (confirmButton != null
             && panel != null
             && nameField != null
+            && baseMarketValueField != null
             && quantityField != null
             && valueField != null)
         {
-            Debug.Log("From ConfirmationWindow: " + panel);
+            //Debug.Log("From ConfirmationWindow: " + panel);
             confirmButton.panel = panel;
             nameField.text = panel.item.itemName;
+            baseMarketValueField.text = panel.item.baseMarketValue + "";
             quantityField.text = panel.quantityToBuy + "";
             valueField.text = System.Math.Abs(panel.Value * panel.quantityToBuy) + "";
         }
@@ -58,6 +73,9 @@ public class ConfirmationWindow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Purge the data-holding component references and hide the static text windows
+    /// </summary>
     private void OnDisable()
     {
         confirmButton = null;
