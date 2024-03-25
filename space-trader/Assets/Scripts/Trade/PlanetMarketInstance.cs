@@ -36,11 +36,11 @@ public class PlanetMarketInstance: MonoBehaviour
             if (markets.demand > 0)
             {
                 salePrices[markets.item] = markets.item.baseMarketValue + markets.demand;
-                buyPrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
+                buyPrices[markets.item] = 1.50f * (markets.item.baseMarketValue + markets.demand);
             }
             else if (markets.demand < 0)
             {
-                salePrices[markets.item] = 0.5f * (markets.item.baseMarketValue + markets.demand);
+                salePrices[markets.item] = 0.75f * (markets.item.baseMarketValue + markets.demand);
                 buyPrices[markets.item] = markets.item.baseMarketValue + markets.demand;
             }
             else
