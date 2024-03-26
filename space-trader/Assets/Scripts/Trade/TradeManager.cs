@@ -33,12 +33,35 @@ public class TradeManager: MonoBehaviour
         }*/
     }
 
-    public void CompleteTransaction(TradeWindowPanel panel)
+    public bool CompleteTransaction(TradeWindowPanel panel)
     {
         Debug.Log((panel.tradeType == TradeType.playerSell ? "Giving player " : "Charging player ") +
             System.Math.Abs(panel.Value * panel.quantityToBuy) +
             " in-game currency");
-        //inventory implementation goes here
+
+        if (panel.tradeType == TradeType.playerBuy) //if the player is trying to buy something
+        {
+            if (PlayerInventoryManager.Instance.player.playerMoney > panel.Value) //if the player has enough money
+            {
+                if (PlayerInventoryManager.Instance.player.cargoSpaceInUse //if the current cargo volume...
+                    + (panel.quantityToBuy * panel.item.cargoVolume) //...plus the volume of items the player is attempting to buy...
+                    <= PlayerInventoryManager.Instance.player.ship.cargoSpace) //...is no greater than the ship's cargo capacity...
+                {
+                    //Subtract cost from player money
+                    //(NOTE: panel.Value will **always be NEGATIVE** for TradeType.playerBuy transactions
+                    //See also the summary in TradeWindowPanel.cs
+                    PlayerInventoryManager.Instance.player.playerMoney += panel.Value;
+
+                    //Add the given item to the player's cargo hold
+                    PlayerInventoryManager.Instance.player.cargoHold[panel.item] += panel.quantityToBuy * panel.item.cargoVolume;
+
+                    //Update the player's cargo space usage
+                    PlayerInventoryManager.Instance.player.cargoSpaceInUse += panel.quantityToBuy * panel.item.cargoVolume;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void ToggleConfirmationWindow(/*TradeUI tradeWindow /*, ConfirmationWindow confirmationWindow*/)
@@ -46,10 +69,10 @@ public class TradeManager: MonoBehaviour
         confirmationWindow.gameObject.SetActive(!confirmationWindow.gameObject.activeInHierarchy);
     }
 
-    public void OpenConfirmationWindow(TradeWindowPanel panel)
+    /*public void OpenConfirmationWindow(TradeWindowPanel panel) //not sure what I was gonna do with this lol ~QP
     {
 
-    }
+    }*/
 
     public void ToggleTradeUI(TradeUI tradeWindow)
     {

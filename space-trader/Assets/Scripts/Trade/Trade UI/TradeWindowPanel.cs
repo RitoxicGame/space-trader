@@ -45,6 +45,12 @@ public class TradeWindowPanel : MonoBehaviour
     /// Negative values mean the player is buying someting.
     /// </summary>
     private float _value;
+
+    /// <summary>
+    /// The total value of the transaction.
+    /// Positive values mean the player is selling something, while
+    /// Negative values mean the player is buying someting.
+    /// </summary>
     public float Value
     {
         get { return _value; }

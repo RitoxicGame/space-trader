@@ -19,8 +19,11 @@ public class ConfirmationWindowButton : MonoBehaviour
             case ConfirmationWindowButtonType.confirm:
                 if (panel != null)
                 {
-                    TradeManager.Instance.CompleteTransaction(panel);
-                    TradeManager.Instance.ToggleConfirmationWindow();
+                    if (TradeManager.Instance.CompleteTransaction(panel))
+                    {
+                        TradeManager.Instance.ToggleConfirmationWindow();
+                    }
+                    //Feedback on why a failed transaction took place should come from within the TradeManager
                 }
                 break;
         }
