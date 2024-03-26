@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: P_RareMinerals
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: c97bdbf23bf83a74497bf4472fdcca75, type: 2}
-  demand: 0
+  demand: 86
   stockAvailable: 999

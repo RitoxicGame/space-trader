@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_RefineMetal
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f814af457c26e304cb1edcd391a67607, type: 2}
-  demand: 0
+  demand: -22
   stockAvailable: 999

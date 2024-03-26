@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: A_FoodStuff
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: c798a9ca1ecd1d949a2ca6605cfcb83f, type: 2}
-  demand: 0
+  demand: 61
   stockAvailable: 999

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: G_LuxuryGoods
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7f7ace02d81169345b650230d95a18b9, type: 2}
-  demand: 0
+  demand: -26
   stockAvailable: 999
