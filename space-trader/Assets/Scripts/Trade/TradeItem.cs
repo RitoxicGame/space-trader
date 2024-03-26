@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/TradeItem")]
+
+///<summary>
+///Remember to add these to PlayerInventoryManager's allTradeItems list as soon as they are made!
+///</summary>
 public class TradeItem : ScriptableObject
 {
     /// <summary>

@@ -27,6 +27,10 @@ public class ConfirmationWindow : MonoBehaviour
     public TextMeshProUGUI baseMarketValueField;
     public TextMeshProUGUI quantityField;
     public TextMeshProUGUI valueField;
+    public TextMeshProUGUI baseVolumeField;
+    public TextMeshProUGUI totalVolumeField;
+    public TextMeshProUGUI cargoRemainingField;
+    public TextMeshProUGUI netBalanceField;
 
     public void OnEnable()
     {
@@ -46,14 +50,36 @@ public class ConfirmationWindow : MonoBehaviour
             && nameField != null
             && baseMarketValueField != null
             && quantityField != null
-            && valueField != null)
+            && valueField != null
+            && baseVolumeField != null
+            && totalVolumeField != null
+            && cargoRemainingField != null
+            && netBalanceField != null)
         {
             //Debug.Log("From ConfirmationWindow: " + panel);
             confirmButton.panel = panel;
             nameField.text = panel.item.itemName;
             baseMarketValueField.text = panel.item.baseMarketValue + "";
             quantityField.text = panel.quantityToBuy + "";
-            valueField.text = System.Math.Abs(panel.Value * panel.quantityToBuy) + "";
+            valueField.text = System.Math.Abs(panel.Value) + "";
+            baseVolumeField.text = panel.item.cargoVolume + "";
+            totalVolumeField.text = (panel.item.cargoVolume * panel.quantityToBuy) + "";
+            if (panel.tradeType == TradeType.playerBuy)
+            {
+                cargoRemainingField.text =
+                    (PlayerInventoryManager.Instance.player.ship.shipCargoSpace
+                    - (PlayerInventoryManager.Instance.player.cargoSpaceInUse
+                    + (panel.quantityToBuy * panel.item.cargoVolume))) + "";
+            }
+            else
+            {
+                cargoRemainingField.text =
+                    (PlayerInventoryManager.Instance.player.ship.shipCargoSpace
+                    - (PlayerInventoryManager.Instance.player.cargoSpaceInUse
+                    - (panel.quantityToBuy * panel.item.cargoVolume))) + "";
+            }
+
+            netBalanceField.text = (PlayerInventoryManager.Instance.player.playerMoney + panel.Value) + "";
         }
 
         //Set appropriate text panels (Purchase Cost vs. Sale Value)

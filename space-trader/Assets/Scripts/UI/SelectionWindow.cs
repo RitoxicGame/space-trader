@@ -37,7 +37,7 @@ public class BuyTradeWindow : ISelectionWindow
             TradeWindowPanel panel = panelButton.GetComponent<TradeWindowPanel>();
             panel.tradeType = TradeType.playerBuy;
             panel.item = p.item;
-            panel.Value = planetMarket.GetBuyPrice(p.item);
+            panel.Value = panel.baseValue = planetMarket.GetBuyPrice(p.item);
             panel.stock = p.stockAvailable;
             panel.ResetUI();
         }
@@ -67,7 +67,7 @@ public class SellTradeWindow : ISelectionWindow
             TradeWindowPanel panel = panelButton.GetComponent<TradeWindowPanel>();
             panel.tradeType = TradeType.playerSell;
             panel.item = p.item;
-            panel.Value = planetMarket.GetSalePrice(p.item);
+            panel.Value = panel.baseValue = planetMarket.GetSalePrice(p.item);
             panel.stock = p.stockAvailable;
             panel.ResetUI();
         }

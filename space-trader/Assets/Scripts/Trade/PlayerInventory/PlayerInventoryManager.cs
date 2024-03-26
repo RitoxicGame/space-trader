@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInventoryManager : MonoBehaviour
@@ -14,6 +15,16 @@ public class PlayerInventoryManager : MonoBehaviour
     /// </summary>
     public PlayerShipAndInventory player;
 
+    /// <summary>
+    /// A list of all TradeItem scriptable objects currently in use.
+    /// Please add new ones here when they are made!
+    /// </summary>
+    public TradeItem[] allTradeItems;
+
+    //Text fields to display inventory and balance
+    public TextMeshProUGUI InventoryReadout;
+    public TextMeshProUGUI BalanceReadout;
+
     //List of Agents the player has at their disposal goes here
 
     private void Awake()
@@ -26,15 +37,14 @@ public class PlayerInventoryManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void ReloadInventoryReadout()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InventoryReadout.text = ""; 
+        BalanceReadout.text = "";
+        foreach (TradeItem item in allTradeItems)
+        {
+            InventoryReadout.text += item.itemName + ": " + player.cargoHold[item] + "\n";
+        }
+        BalanceReadout.text = "Balance: " + player.playerMoney + "";
     }
 }
