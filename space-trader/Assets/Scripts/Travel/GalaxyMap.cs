@@ -14,6 +14,9 @@ public class TravelManager : MonoBehaviour
         if (CanPlayerAffordTravel(totalCost))
         {
             // Deduct the currency here
+            PlayerInventoryManager.Instance.player.playerMoney -= totalCost;
+            PlayerInventoryManager.Instance.ReloadInventoryReadout();
+            //Debug.Log("Remaining currency: " + PlayerInventoryManager.Instance.player.playerMoney);
 
             // Update the rocket's target position and start coroutine to move it
             targetPosition = targetPlanet.transform.position;
@@ -73,8 +76,7 @@ public class TravelManager : MonoBehaviour
 
     private bool CanPlayerAffordTravel(int cost)
     {
-        // TODO: logic to check if the player has enough currency
-        return true;
+        return (cost <= PlayerInventoryManager.Instance.player.playerMoney);
     }
 
 }

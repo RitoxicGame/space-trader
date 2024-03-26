@@ -27,7 +27,7 @@ public class TradeWindowPanel : MonoBehaviour
     public int stock;
 
     /// <summary>
-    /// The amount the player intends to buy
+    /// The amount the player intends to buy or sell
     /// </summary>
     public int quantityToBuy = 0;
 
@@ -40,18 +40,29 @@ public class TradeWindowPanel : MonoBehaviour
     [SerializeField] Image sprite;
 
     /// <summary>
+    /// Base value of the item in the given market.
+    /// </summary>
+    public float baseValue;
+
+    /// <summary>
     /// The total value of the transaction.
     /// Positive values mean the player is selling something, while
     /// Negative values mean the player is buying someting.
     /// </summary>
-    private float _value;
+    private float _totalValue;
+
+    /// <summary>
+    /// The total value of the transaction.
+    /// Positive values mean the player is selling something, while
+    /// Negative values mean the player is buying someting.
+    /// </summary>
     public float Value
     {
-        get { return _value; }
+        get { return _totalValue; }
         set
         { 
-            if(this.tradeType == TradeType.playerBuy) _value = value * -1;
-            else if(this.tradeType == TradeType.playerSell) _value = value;
+            if(this.tradeType == TradeType.playerBuy) _totalValue = value * -1;
+            else if(this.tradeType == TradeType.playerSell) _totalValue = value;
         }
     }
 
@@ -71,7 +82,7 @@ public class TradeWindowPanel : MonoBehaviour
         if (item != null)
         {
             itemName.text = item.name;
-            cost.text = "Value: " + System.Math.Abs(_value);
+            cost.text = "Value: " + baseValue;
 
             if (sprite != null)
             {
@@ -93,11 +104,13 @@ public class TradeWindowPanel : MonoBehaviour
     }
 
     /// <summary>
-    /// Update th Quantity text field when the value changes -- see TradeQuantityAdjustButton.cs
+    /// Update the Quantity text field when the value changes -- see TradeQuantityAdjustButton.cs
     /// </summary>
     public void UpdateBuyQuantity()
     {
         amount.text = "" + quantityToBuy;
+        Value = quantityToBuy * baseValue;
+        Debug.Log(this);
     }
 
     /// <summary>
@@ -106,6 +119,7 @@ public class TradeWindowPanel : MonoBehaviour
     /// <returns></returns>
     public override string ToString()
     {
-        return "Panel containing " + quantityToBuy + " " + item.itemName + " valued at " + System.Math.Abs(_value) + " currency each";
+        return "Panel containing " + quantityToBuy + " " + item.itemName + " valued at " + baseValue + " currency each." +
+            "\nTotal transaction effect: " + Value;
     }
 }

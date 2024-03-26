@@ -56,7 +56,29 @@ public class TradeQuantityAdjustButton : MonoBehaviour
                 {
                     panel.quantityToBuy += 1;
                 }
-                //CHECK TO SEE IF IT WILL FIT IN CARGO HOLD ~QP
+                if (panel.tradeType == TradeType.playerBuy/* &&
+                    (panel.quantityToBuy * panel.item.cargoVolume) + PlayerInventoryManager.Instance.player.cargoSpaceInUse
+                    > PlayerInventoryManager.Instance.player.ship.shipCargoSpace*/)
+                {
+                    //When player is buying something, increment the quantityToBuy ONLY IF they have enough cargo space to hold it
+                    panel.quantityToBuy = System.Math.Min(
+                        (int) ((PlayerInventoryManager.Instance.player.ship.shipCargoSpace
+                        - PlayerInventoryManager.Instance.player.cargoSpaceInUse)
+                        / panel.item.cargoVolume),
+                        panel.quantityToBuy);
+
+                    //TODO: give feedback for this in-game
+                    //Debug.Log("Not enough inventory space to fit any more!");
+                }
+                else if (panel.tradeType == TradeType.playerSell/* &&
+                    panel.quantityToBuy > PlayerInventoryManager.Instance.player.cargoHold[panel.item]*/)
+                {
+                    //When player is selling, increment quantityToBuy ONLY IF they have enough of the item in their inventory
+                    panel.quantityToBuy = System.Math.Min(PlayerInventoryManager.Instance.player.cargoHold[panel.item], panel.quantityToBuy);
+
+                    //TODO: give feedback for this in-game
+                    //Debug.Log("Not enough " + panel.item.itemName + " to sell any more!");
+                }
                 break;
         }
         panel.UpdateBuyQuantity();
