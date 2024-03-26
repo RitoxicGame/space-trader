@@ -22,8 +22,8 @@ public class PlayerInventoryManager : MonoBehaviour
     public TradeItem[] allTradeItems;
 
     //Text fields to display inventory and balance
-    public TextMeshProUGUI InventoryReadout;
-    public TextMeshProUGUI BalanceReadout;
+    public TextMeshProUGUI inventoryReadout;
+    public TextMeshProUGUI balanceReadout;
 
     //List of Agents the player has at their disposal goes here
 
@@ -37,14 +37,24 @@ public class PlayerInventoryManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    private void Start()
+    {
+
+    }
+
     public void ReloadInventoryReadout()
     {
-        InventoryReadout.text = ""; 
-        BalanceReadout.text = "";
+        inventoryReadout = InventoryReadout.Instance.inventoryReadout;
+        balanceReadout = BalanceReadout.Instance.balanceReadout;
+
+        inventoryReadout.text = "";
+        balanceReadout.text = "";
+
         foreach (TradeItem item in allTradeItems)
         {
-            InventoryReadout.text += item.itemName + ": " + player.cargoHold[item] + "\n";
+            Debug.Log("Adding " + item.itemName + " to Readout");
+            inventoryReadout.text += item.itemName + ": " + player.cargoHold[item] + "\n";
         }
-        BalanceReadout.text = "Balance: " + player.playerMoney + "";
+        balanceReadout.text = "Balance: " + player.playerMoney + "";
     }
 }

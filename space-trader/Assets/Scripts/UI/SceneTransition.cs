@@ -27,6 +27,11 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadSceneAsync("Game");
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

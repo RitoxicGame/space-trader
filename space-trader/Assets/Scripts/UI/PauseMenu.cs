@@ -6,23 +6,17 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject pausemenu;
+    [SerializeField] GameObject pausemenu;
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!GameIsPaused)
-            {
-                Pause();
-            }
-            else 
-            {
-                Resume();
-            }
+            Debug.Log("Toggling pause menu");
+            TogglePause();
         }
     }
 
-    public void Resume() 
+    /*public void Resume() 
     {
         pausemenu.SetActive(false);
         GameIsPaused = false;
@@ -31,8 +25,13 @@ public class PauseMenu : MonoBehaviour
     {
         pausemenu.SetActive(true);
         GameIsPaused = true;
-    }
+    }*/
 
+    public void TogglePause()
+    {
+        GameIsPaused = !GameIsPaused;
+        pausemenu.SetActive(GameIsPaused);
+    }
     public void BacktoMain() 
     {
         SceneManager.LoadScene("MainMenu");
