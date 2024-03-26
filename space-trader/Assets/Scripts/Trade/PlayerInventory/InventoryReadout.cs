@@ -5,24 +5,30 @@ using UnityEngine;
 
 public class InventoryReadout : MonoBehaviour
 {
-    public static InventoryReadout Instance;
     public TextMeshProUGUI inventoryReadout;
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance == null)
+        //inventoryReadout = GetComponentInChildren<TextMeshProUGUI>();
+        //UpdateInventoryReadout();
+    }
+
+    public void UpdateInventoryReadout()
+    {
+        inventoryReadout.text = "";
+
+        foreach (TradeItem item in PlayerInventoryManager.Instance.allTradeItems)
         {
-            Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            Debug.Log("Adding " + item.itemName + " to Readout");
+            /*if (inventoryReadout.text == null || inventoryReadout == null)
+            {
+                Debug.Log("frick me dude");
+            }*/
+            if (PlayerInventoryManager.Instance.player == null)
+            {
+                Debug.Log("frick me dude");
+            }
+            inventoryReadout.text += item.itemName + ": " + PlayerInventoryManager.Instance.player.cargoHold[item] + "\n";
         }
-        else Destroy(gameObject);
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        inventoryReadout = GetComponent<TextMeshProUGUI>();
-    }
-
-    //public static TextMeshProUGUI GetInventoryReadout() { return inventoryReadout; }
 }

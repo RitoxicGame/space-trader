@@ -30,6 +30,10 @@ public class PlayerShipAndInventory : MonoBehaviour
     /// </summary>
     private Image playerSprite;
 
+    //readouts for inventory and balance
+    [SerializeField] InventoryReadout inventoryReadout;
+    [SerializeField] BalanceReadout balanceReadout;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +48,8 @@ public class PlayerShipAndInventory : MonoBehaviour
         {
             cargoHold[item] = 0;
         }
-        PlayerInventoryManager.Instance.ReloadInventoryReadout();
+        inventoryReadout.UpdateInventoryReadout();
+        balanceReadout.UpdateBalanceReadout();
     }
 
     /// <summary>

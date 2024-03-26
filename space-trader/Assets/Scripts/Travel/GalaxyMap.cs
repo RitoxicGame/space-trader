@@ -7,6 +7,8 @@ public class TravelManager : MonoBehaviour
     public GameObject rocketShip;
     private Vector3 targetPosition;
 
+    [SerializeField] BalanceReadout balanceReadout;
+
     public void MoveToPlanet(Planet targetPlanet)
     {
         int totalCost = CalculateTravelCost(currentPlanet, targetPlanet);
@@ -15,7 +17,8 @@ public class TravelManager : MonoBehaviour
         {
             // Deduct the currency here
             PlayerInventoryManager.Instance.player.playerMoney -= totalCost;
-            PlayerInventoryManager.Instance.ReloadInventoryReadout();
+            balanceReadout.UpdateBalanceReadout();
+            //PlayerInventoryManager.Instance.ReloadInventoryReadout();
             //Debug.Log("Remaining currency: " + PlayerInventoryManager.Instance.player.playerMoney);
 
             // Update the rocket's target position and start coroutine to move it

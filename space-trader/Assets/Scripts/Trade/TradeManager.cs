@@ -9,6 +9,9 @@ public class TradeManager: MonoBehaviour
 
     public TravelManager travelManager;
     public ConfirmationWindow confirmationWindow;
+
+    [SerializeField] InventoryReadout inventoryReadout;
+    [SerializeField] BalanceReadout balanceReadout;
     //[SerializeField] TradeUI tradeWindow;
 
     private void Awake()
@@ -63,7 +66,9 @@ public class TradeManager: MonoBehaviour
                     Debug.Log("Remaining currency: " + PlayerInventoryManager.Instance.player.playerMoney);
 
                     panel.ResetUI();
-                    PlayerInventoryManager.Instance.ReloadInventoryReadout();
+                    inventoryReadout.UpdateInventoryReadout();
+                    balanceReadout.UpdateBalanceReadout();
+                    //PlayerInventoryManager.Instance.ReloadInventoryReadout();
                     return true;
                 }
                 else //The player doesn't have space for the new items
@@ -96,7 +101,9 @@ public class TradeManager: MonoBehaviour
                 Debug.Log("Current currency total: " + PlayerInventoryManager.Instance.player.playerMoney);
 
                 panel.ResetUI();
-                PlayerInventoryManager.Instance.ReloadInventoryReadout();
+                inventoryReadout.UpdateInventoryReadout();
+                balanceReadout.UpdateBalanceReadout();
+                //PlayerInventoryManager.Instance.ReloadInventoryReadout();
                 return true;
             }
             else //the player doesn't have what they want to sell
