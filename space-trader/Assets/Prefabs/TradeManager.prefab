@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   travelManager: {fileID: 0}
-  tradeWindow: {fileID: 0}
+  confirmationWindow: {fileID: 1427234159915820324, guid: 60cae071e0a5dd344a0b37bb4a7918a0, type: 3}
+  inventoryReadout: {fileID: 684081524606457698, guid: 96696d015473ba0419e1a185ca14225c, type: 3}
+  balanceReadout: {fileID: 5814677422922424600, guid: 96696d015473ba0419e1a185ca14225c, type: 3}

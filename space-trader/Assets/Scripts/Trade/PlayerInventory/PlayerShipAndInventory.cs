@@ -48,6 +48,9 @@ public class PlayerShipAndInventory : MonoBehaviour
         {
             cargoHold[item] = 0;
         }
+
+        PlayerInventoryManager.Instance.player = this;
+
         inventoryReadout.UpdateInventoryReadout();
         balanceReadout.UpdateBalanceReadout();
     }

@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused;
     [SerializeField] GameObject pausemenu;
+
+    private void Start()
+    {
+        GameIsPaused = false;
+        pausemenu.SetActive(false);
+    }
+
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -34,6 +41,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void BacktoMain() 
     {
+        GameIsPaused = false;
+        pausemenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
     public void QuitGame() 

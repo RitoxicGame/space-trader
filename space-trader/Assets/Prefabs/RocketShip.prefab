@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3225671280804838862}
   m_Layer: 5
   m_Name: RocketShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 11400000, guid: ec03040c8fb4e224192412b310eac273, type: 2}
-  playerMoney: 0
+  playerMoney: 1000
   cargoSpaceInUse: 0
-  inventoryReadout: {fileID: 0}
-  balanceReadout: {fileID: 0}
+  inventoryReadout: {fileID: 684081524606457698, guid: 96696d015473ba0419e1a185ca14225c, type: 3}
+  balanceReadout: {fileID: 5814677422922424600, guid: 96696d015473ba0419e1a185ca14225c, type: 3}
 --- !u!114 &3225671280804838862
 MonoBehaviour:
   m_ObjectHideFlags: 0
