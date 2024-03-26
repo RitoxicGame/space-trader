@@ -70,7 +70,7 @@ public class TradeWindowPanel : MonoBehaviour
         sellText.gameObject.SetActive(false);
         if (item != null)
         {
-            itemName.text = item.name;
+            itemName.text = item.itemName;
             cost.text = "Value: " + System.Math.Abs(_value);
 
             if (sprite != null)
