@@ -1058,7 +1058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 87.5, y: -42.5}
+  m_AnchoredPosition: {x: 87.5, y: -42}
   m_SizeDelta: {x: -505, y: -225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587859865
@@ -1630,7 +1630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87.5, y: -42.5}
+  m_AnchoredPosition: {x: -87.5, y: -42}
   m_SizeDelta: {x: -505, y: -225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060547512
@@ -2285,7 +2285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11400001, y: 0.7734277}
   m_AnchorMax: {x: 0.14400001, y: 0.8174339}
-  m_AnchoredPosition: {x: -1, y: 1.8999634}
+  m_AnchoredPosition: {x: -1, y: 2}
   m_SizeDelta: {x: 1.4783936, y: 2.4118042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333135968
@@ -2888,16 +2888,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: market.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: market.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 069439dddddd57c4ca4864156a07631b, type: 2}
+      objectReference: {fileID: 11400000, guid: c348c3f7e39f75444a5e14ee2b369512, type: 2}
     - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: market.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 5fae64cf00af8864f86aa9d3ac59cbbf, type: 2}
+      objectReference: {fileID: 11400000, guid: aa0d35c0401892c4f8b1cff016104ba4, type: 2}
+    - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
+      propertyPath: market.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b110d7df6fff2454994e4200f088d2ba, type: 2}
+    - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
+      propertyPath: market.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 666a5c74e68a128408c9c2b6dc059738, type: 2}
+    - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
+      propertyPath: market.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bc7e274781a54640aac5944f93cb20f, type: 2}
+    - target: {fileID: 4438547383493102198, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
+      propertyPath: market.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 59af247e2431eb5429414ddf3a6b77b7, type: 2}
     - target: {fileID: 7909759382664706462, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: nextPlanet
       value: 
@@ -2988,7 +3004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776183760068921493, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8776183760068921493, guid: c00c9572e7cc343f09bb3c4693cc4a3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
